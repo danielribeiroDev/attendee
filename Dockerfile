@@ -108,6 +108,8 @@ COPY --chown=app:app . .
 # Make STATIC_ROOT writeable for the non-root user so collectstatic can run at startup
 RUN mkdir -p "$cwd/staticfiles" && chown -R app:app "$cwd/staticfiles"
 
+RUN mkdir -p "$cwd/bots" && chown -R app:app "$cwd/bots"
+
 # Switch to non-root AFTER copies to avoid permission flakiness
 USER app
 
